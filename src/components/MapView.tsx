@@ -45,7 +45,10 @@ const MapView: React.FC<MapViewProps> = ({
           id="currentLocation"
           coordinate={currentLocation}>
           <View style={styles.markerContainer}>
-            <View style={styles.marker} />
+            <Image
+              source={require('../assets/icons/bicycle.png')}
+              style={styles.destinationMarker}
+            />
           </View>
         </MapboxGL.PointAnnotation>
       )}
