@@ -29,6 +29,7 @@ const SearchBar: React.FC<SearchBarProps> = ({onSearchResultPress}) => {
     const response = await fetch(
       `https://api.mapbox.com/geocoding/v5/mapbox.places/${query}.json?access_token=${MAPBOX_ACCESS_TOKEN}&autocomplete=true&limit=7`,
     );
+    // `https://api.mapbox.com/search/geocode/v6/forward?q=${query}&access_token=${MAPBOX_ACCESS_TOKEN}&autocomplete=true&country=PK`,
     const data = await response.json();
     setSearchResults(data.features);
   };
@@ -57,6 +58,7 @@ const SearchBar: React.FC<SearchBarProps> = ({onSearchResultPress}) => {
                 setSearchResults([]);
                 setSearchQuery('');
               }}>
+              {/* <Text>{item.properties.full_address}</Text> */}
               <Text>{item.place_name}</Text>
             </TouchableOpacity>
           )}

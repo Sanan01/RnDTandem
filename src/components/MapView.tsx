@@ -1,6 +1,10 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {View, StyleSheet, Image} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  // Image
+} from 'react-native';
 import MapboxGL from '@rnmapbox/maps';
 
 interface MapViewProps {
@@ -45,20 +49,22 @@ const MapView: React.FC<MapViewProps> = ({
           id="currentLocation"
           coordinate={currentLocation}>
           <View style={styles.markerContainer}>
-            <Image
+            {/* <Image
               source={require('../assets/icons/bicycle.png')}
               style={styles.destinationMarker}
-            />
+            /> */}
+            <View style={styles.marker} />
           </View>
         </MapboxGL.PointAnnotation>
       )}
       {dest && (
         <MapboxGL.PointAnnotation id="destination" coordinate={dest}>
           <View style={styles.markerContainer}>
-            <Image
+            {/* <Image
               source={require('../assets/icons/destination.png')}
               style={styles.destinationMarker}
-            />
+            /> */}
+            <View style={styles.marker} />
           </View>
         </MapboxGL.PointAnnotation>
       )}
@@ -75,10 +81,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   marker: {
-    height: 40,
-    width: 40,
+    height: 20,
+    width: 20,
     backgroundColor: 'blue',
-    borderRadius: 20,
+    borderRadius: 10,
     borderColor: 'white',
     borderWidth: 5,
   },

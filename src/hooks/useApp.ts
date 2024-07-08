@@ -53,18 +53,12 @@ export default useApp = () => {
 
   return {
     dest,
-    setDest,
     distance,
     duration,
-    fetchRoute,
-    updateRoute,
     cameraCenter,
     currentSpeed,
-    setCameraCenter,
     currentLocation,
     routeCoordinates,
-    requestLocationPermission,
     handleSearchResultPress,
-    checkIfDestinationReached,
   };
 };

@@ -49,6 +49,7 @@ const useLocation = (): UseLocation => {
   const getCurrentLocation = () => {
     Geolocation.watchPosition(
       position => {
+        console.log('watch position', position);
         const {latitude, longitude, speed} = position.coords;
         const newLocation: Location = [longitude, latitude];
         setCurrentLocation(newLocation);
@@ -56,7 +57,7 @@ const useLocation = (): UseLocation => {
         setCurrentSpeed(speed || 0);
       },
       error => console.log(error),
-      {enableHighAccuracy: true, distanceFilter: 10},
+      {distanceFilter: 10},
     );
   };
 
