@@ -1,22 +1,20 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import MapboxGL from '@rnmapbox/maps';
 import {MAPBOX_ACCESS_TOKEN} from '../mapboxConfig.js';
 import SearchBar from './components/SearchBar';
 import LocationInfo from './components/LocationInfo';
-import MapView from './components/MapView';
 import useApp from './hooks/useApp.ts';
+import Mapbox from '@rnmapbox/maps';
+import MapViewComponent from './components/MapView';
 
-MapboxGL.setAccessToken(MAPBOX_ACCESS_TOKEN);
+Mapbox.setAccessToken(MAPBOX_ACCESS_TOKEN);
 
 const App: React.FC = () => {
   const {
-    dest,
     distance,
     duration,
-    cameraCenter,
     currentSpeed,
-    currentLocation,
     routeCoordinates,
     handleSearchResultPress,
   } = useApp();
@@ -24,12 +22,7 @@ const App: React.FC = () => {
   return (
     <View style={styles.container}>
       <SearchBar onSearchResultPress={handleSearchResultPress} />
-      <MapView
-        cameraCenter={cameraCenter}
-        currentLocation={currentLocation}
-        routeCoordinates={routeCoordinates}
-        dest={dest}
-      />
+      <MapViewComponent routeCoordinates={routeCoordinates} />
       <LocationInfo
         distance={distance}
         duration={duration}
